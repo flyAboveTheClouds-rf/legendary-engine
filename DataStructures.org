@@ -72,16 +72,16 @@
     - Recursion
     - Infix, PostFix Conversion
     - Parsing
-    - Pages in a Browser Tab
+    - Browser history in a Tab
     - Undo, Redo in editors
     - Tree & Graph Traversing
-
 * Implementation of stacks using arrays
 ** Video Notes
+   - You will need a 'top' variable to track the top of the stack - the top is -1 for an empty stack
    - Limitaion of Arrays: We have to predict the size of the array
-   - You will need a 'top' variable to track the top of the stack
    - In this implementation, we don't need to delete a node when we pop
    - We just have to change the 'top' variable
+   - For operations on stack(or other data structures) check for 'overflow' & 'underflow'
 *** Operations on Stack
     - Push
     - Pop
@@ -91,7 +91,9 @@
    - Because we can't go back in an SLL we push and pop at the HEAD node
    - Sometimes malloc might return a NULL pointer if the memory is unavailable - you have to check for that possibility in your programs
    - We free memory in after popping in linked lists
-
+   - Malloc returns a void pointer - you might want to type cast that pointer
+   - Malloc returns memory from the Heap
+     
 * Implementation of a Queue using a Circular arrays
 ** Video Notes
    - You use 2 pointers to keep track of the queue
@@ -111,4 +113,113 @@
 
 * Implementation of a Queue using 2 stacks
 ** Video Notes
-   - 
+   - To implement a Queue using 2 stacks
+   - you need to reverse the order of popping
+   - but also there should be no inserts into stack-2 before emptying it
+* Implementation of a Queue using 1 stack
+** Video Notes
+   - Same concept
+   - instead of using another stack to reverse the order
+   - use the same stack to reverse using 'reverse' operation on the stack
+* Infix to Postfix Conversion Algorithm
+** Video Notes
+   * We use the 'stack' data structure
+   * Infix operators lie between operands as opposed to lying outside the operators
+   * We only push operators into the stack - not the operands
+   * Operator precedence matters in this algorithm
+   * This what the Algorithm does: Converts an expression using infix-operators to an expression using outfix operators
+   * I wonder who gives a shit about infix & outfix operators
+   * Algorithm:
+   * Read the expression from left to right
+   * If the character is an operand print it
+   * If the character is an operator push it to the stack
+   * But only if the operator on the top of the stack has lower precedence than the one about to be pushed
+   * If the operator that's about to be pushed has lower precedence, the pop the stack until you can push it
+   * (Popping means printing and popping)
+   * Remember this operator precedence:
+   * + < (
+   * ( < +
+* Postfix Evaluation Algorithm
+** Video Notes
+   - We use Postfix notation to evaluate the expression in one go - otherwise we have to evaluate it recursively
+   - Algorithm:
+   - Here we push operands onto the stack from left to right
+   - When we encounter operators pop the 1 or 2 operators depending on whether it's a unary or binary operator
+   - Evaluate that and push back the result
+   - Keep doing that until the whole expression is evaluated
+* Introduction to Tree Traversals
+** Video Notes
+   - Binary Tree: Any tree that has more than 2 nodes
+   - Traversing: Explore what's in every element
+   - Searching: Look for an element
+   - Inorder Traversing: Visit all the Left nodes first and Root nodes next
+   - Preorder Traversing: Visit all the Root nodes first and Left nodes next
+   - Postorder Traversing: Visit all the Left nodes first and Right nodes next
+   - Traversing is Basically 'Walking' all over the tree meeting all the elements
+   - Watch the video again - there are some tricks
+   - Trick: Give all the nodes dummy nodes - Pre -> print the node for 1st time - In -> print the node when you visit the 2nd time - Post -> print the node when you visit the node for the 3rd time
+* Implementation of Traversals & Time-Space Analysis
+** Video Notes
+   - A Tree node has 2 pointers for holding left & right nodes
+   - Algorithm for Inorder Traversal:
+   - Remember to add dummy-nodes for solving problems
+
+----------------------------
+struct node
+{
+  char data;
+  struct node *left, *right;
+}
+
+void TraverseInOrder(struct node *t)
+{
+  if (t)
+  {
+    TraverseInOrder(*left);
+    printf("%c", t->data);
+    TraverseInOrder(*right);
+  }
+}
+
+// You can change the order to change the Algorithm to Postfix or Prefix
+
+---------------------------
+* Double Order Traversal
+** Video Notes
+   - Watch the Video
+   - This is a trick to do traversals using recursions easily
+* Triple Order Traversal
+** Video Notes
+   - Triple order means printing 2 times and in between printing we visit other nodes
+   - Same goes for double order
+* Indirect Recursion on Trees
+** Video Notes
+   - If 2 functions A & B behave like this => A calls B -> Now B calls A <= this is called Indirect Recursion
+* Number of Binary Trees Possible
+** Video Notes
+   - n -> No. of nodes
+   - Number of Binary Trees Possible => (2ncn)[n!]/(n+1) // use the factorial if labelling is possible
+* Number of Binary Trees Possible Labelled & Unlabelled
+** Video Notes
+   - Given a order(pre, in, post), can you construct the possible trees
+   - Given 2 orders, more than 1 btrees are possible
+   - Given 3 orders, only one tree is possible
+* Construction of Unique Binary tree using Inorder & Preorder
+** Video Notes
+   - By using the order, we deduce the root and children
+   - If ABC is a preorder - A is the root
+   - If ABC is a inorder - B is the root
+   - Watch the Video - there are tricks
+* Recursive Program to Count the number of Nodes
+** Video Notes
+   - Using recursion count the number of nodes
+   - this is the code: 1 + NN(left subtree) + NN(right subtree)
+   - where NN is the function that's called recursively
+* Recursive Program to Count the number of Leaves & NonLeaves
+** Video Notes
+   - A leaf has both right & left child as NULL
+   - Solve this using recursion
+* Recursive program to find the full nodes
+** Video Notes
+   - Full node has all the children(left & right)
+   - Watch the video for reviewing the code
