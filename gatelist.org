@@ -1,0 +1,23 @@
+* Syllabus(170 hrs - 1 Week - 1/4 Month)
+This is going to take all of August & September iff you do it 3 hrs a day
+** TODO P & DS(8 hrs)
+** DONE C Programming(3)
+** TODO Algorithms(23 hrs)
+** TODO Graph Theory(5 hrs)
+** TODO Data Structures(8 hrs)
+** TODO Compiler Design(11 hrs)
+** TODO Operating Systems(37 hrs)
+** TODO Algorithms for Gate(4 hrs)
+** TODO Database Management System(31 hrs)
+** TODO Computer Networks(40 hrs excluding problems)
+* LeftOver
+** TOC
+** Math
+*** Calculus
+*** Combinatorics & Propositional Logic
+*** Linear Algebra
+*** Probability
+*** Set Theory & Algebra
+** Aptitude
+** Digital Logic Design
+** Computer Organzation & Architecture

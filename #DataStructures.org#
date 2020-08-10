@@ -1,0 +1,114 @@
+* Introduction to single linked lists
+** Video Notes
+   - Elements of a linked list are called nodes
+   - Nodes are self-referential ( they refer to a node of same type )
+   - Linked lists are useful for dynamically creating data structures
+   - Linked lists start with a pointer called head( similar to name of the array )
+** Doubts
+*** TODO Clarify & Remember Precedence of Operators
+*** FINISHED Clarify pointer operators like ->, ., &, *
+    CLOSED: [2020-07-13 Mon 10:18]
+    - There are Elements: variables, structures, arrays etc...
+    - Pointers are like variable names in that they can refer to the value of the variable and assign a new value
+    - When refering to a variable's value, you have to prepend '*' to the name of the pointer
+    - That's it. That's all you have to remember. A pointer's as good as a variable name
+    - A pointer can point to another pointer -> This is where it might get complicated
+* Traversing a single linked list
+** Video Notes
+   - Data Structures are generally made of Structures?
+   - If you lose the address of the node, you lose the node
+   - 
+*** Operations on a Data Structure
+    - Traversing
+    - Inserting
+    - Deleting
+    - Searching
+
+* Inserting an Element in SLL
+** Video Notes
+  - sizeof() is not a function, it's an operator
+  - Pass this argument to malloc for creating a new node -> sizeof(struct node)
+  - malloc returns a (void *) address which you should type cast to (stuct node *)
+*** Insertion
+    - Inserting at the beginning
+    - Inserting at the end
+    - Inserting between nodes
+
+* Deleting a node from SLL
+** Video Notes
+   - Deleting a node is just losing the address
+   - But we also want to free up the space taken by the node
+   - We do that by passing the address of the node to free(struct node *)
+   - Deleting the HEAD
+   - Deleting the TAIL
+   - Deleting any node
+* Printing the elements of SLL using recursion
+** Video Notes
+   - The program could be smaller if you use recursion
+   - Post-Recursion: This way you can print data in the reverse order( which might be difficult in an SLL if you don't use recursion )
+   - Pre-Recursion: This way you can print from start to end
+
+* Reversing an SLL using an iterative program
+** Video Notes
+   - Reversing SLL: Exchange HEAD and TAIL
+   - You have to use three pointers to hold CurrentNode, PreviousNode and NextNode
+* Recursive program for reversing an SLL
+** Video Notes
+   - No Notes
+* Circular linked list
+** Video Notes
+   - In an SLL you have to start from HEAD to traverse the list( you can't go back in an SLL )
+   - In CLL, you can start anywhere to traverse the list( you still can't go back )
+   - In order to not fall in an infinite-loop, you introduce a node called sentinel node
+* Insertion into doubly linked list
+** Video Notes
+   - It's not Hard
+   - Just think
+* Introduction to Stacks
+** Video Notes
+   - Last In, First Out
+   - Like Stacked Plates
+*** Applications of Stack
+    - Recursion
+    - Infix, PostFix Conversion
+    - Parsing
+    - Pages in a Browser Tab
+    - Undo, Redo in editors
+    - Tree & Graph Traversing
+
+* Implementation of stacks using arrays
+** Video Notes
+   - Limitaion of Arrays: We have to predict the size of the array
+   - You will need a 'top' variable to track the top of the stack
+   - In this implementation, we don't need to delete a node when we pop
+   - We just have to change the 'top' variable
+*** Operations on Stack
+    - Push
+    - Pop
+* Linked list implementation of stack
+** Video Notes
+   - Pushing and Popping will take O(1) time - in both arrays and linked lists
+   - Because we can't go back in an SLL we push and pop at the HEAD node
+   - Sometimes malloc might return a NULL pointer if the memory is unavailable - you have to check for that possibility in your programs
+   - We free memory in after popping in linked lists
+
+* Implementation of a Queue using a Circular arrays
+** Video Notes
+   - You use 2 pointers to keep track of the queue
+   - front and rear
+   - When you Enqueue nodes, rear increases
+   - When you Dequeue nodes, front decreases
+   - You use arrays in this implementation
+   - But you think of the array as a circular one
+   - In circular array always leave one empty space that front points to
+   - The space that front points to is the space that is last emptied(Dequeued)
+   - You have to know the conditions for 'Overflow' and 'Underflow'
+   - Overflow -> (rear+1)/modn == front
+   - Underflow -> front == rear
+*** Operations on a Queue
+    - Enqueue -> Adding Nodes
+    - Dequeue -> Deleting Nodes
+
+* Implementation of a Queue using 2 stacks
+** Video Notes
+   - 
